@@ -6,6 +6,10 @@ Esse é o meu *take* do projeto da [Semana OmniStack](https://rocketseat.com.br/
 
 O objetivo desse projeto é conectar ONGs à *heróis* de uma forma simples, desburocratizada e bonita.
 
+## Tecnologias
+
+- Yarn Workspaces
+
 ## Licenciamento
 
 Este projeto está licenciado sob os termos da [Licença MIT](./LICENSE).
