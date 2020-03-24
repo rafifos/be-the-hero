@@ -9,6 +9,7 @@ O objetivo desse projeto é conectar ONGs à _heróis_ de uma forma simples, des
 ## Tecnologias
 
 - Yarn Workspaces
+- NestJS
 - React
 
 ## Licenciamento
