@@ -10,6 +10,7 @@ O objetivo desse projeto é conectar ONGs à _heróis_ de uma forma simples, des
 
 - Yarn Workspaces
 - NestJS
+- React
 
 ## Licenciamento
 

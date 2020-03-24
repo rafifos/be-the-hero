@@ -5,6 +5,10 @@
       "path": "../packages/server"
     },
     {
+      "name": "Front-end",
+      "path": "../packages/web"
+    },
+    {
       "name": "Raiz",
       "path": "../"
     }
