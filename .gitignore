@@ -188,3 +188,20 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/linux,macos,windows,visualstudiocode,node
+
+# From create-react-app
+
+# dependencies
+/.pnp
+.pnp.js
+
+# production
+/build
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# End of create-react-app
