@@ -2,11 +2,11 @@
   "folders": [
     {
       "name": "Back-end",
-      "path": "/home/rafifos/WorkDir/be-the-hero/packages/server"
+      "path": "../packages/server"
     },
     {
       "name": "Raiz",
-      "path": "/home/rafifos/WorkDir/be-the-hero"
+      "path": "../"
     }
   ],
   "settings": {}
