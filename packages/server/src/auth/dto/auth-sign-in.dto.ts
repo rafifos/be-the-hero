@@ -1,11 +1,6 @@
 import { IsString, Matches, MaxLength, MinLength } from 'class-validator';
 
-export class AuthCredentialsDTO {
-  @IsString()
-  @MinLength(4)
-  @MaxLength(48)
-  name: string;
-
+export class AuthSignInDTO {
   @IsString()
   @MinLength(8)
   @MaxLength(64)
@@ -13,12 +8,6 @@ export class AuthCredentialsDTO {
     message: 'E-mail inválido.',
   })
   email: string;
-
-  @IsString()
-  @Matches(/(\(\d{2}\)\s)(\d{4,5}\-\d{4})/, {
-    message: 'Telefone inválido.',
-  })
-  phone: string;
 
   @IsString()
   @MinLength(8)

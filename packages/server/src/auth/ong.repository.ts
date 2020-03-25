@@ -4,13 +4,14 @@ import {
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { EntityRepository, Repository } from 'typeorm';
-import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
+import { AuthSignInDTO } from './dto/auth-sign-in.dto';
+import { AuthSignUpDTO } from './dto/auth-sign-up.dto';
 import { ONG } from './ong.entity';
 
 @EntityRepository(ONG)
 export class ONGRepository extends Repository<ONG> {
-  async signUp(authCredentialsDTO: AuthCredentialsDTO): Promise<void> {
-    const { name, email, phone, password } = authCredentialsDTO;
+  async signUp(authSignUpDTO: AuthSignUpDTO): Promise<void> {
+    const { name, email, phone, password } = authSignUpDTO;
     const ong = new ONG();
 
     ong.name = name;
@@ -34,5 +35,16 @@ export class ONGRepository extends Repository<ONG> {
 
   private async hashPassword(password: string, salt: string): Promise<string> {
     return bcrypt.hash(password, salt);
+  }
+
+  async validateONGPassword(authSignInDTO: AuthSignInDTO): Promise<string> {
+    const { email, password } = authSignInDTO;
+    const ong = await this.findOne({ email });
+
+    if (ong && (await ong.validatePassword(password))) {
+      return ong.name;
+    } else {
+      return null;
+    }
   }
 }
