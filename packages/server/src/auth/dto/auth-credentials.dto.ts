@@ -4,31 +4,28 @@ export class AuthCredentialsDTO {
   @IsString()
   @MinLength(4)
   @MaxLength(48)
-  @Matches(/^[a-zA-Z]$/, {
-    message: 'name must contain only letters.',
-  })
   name: string;
 
   @IsString()
   @MinLength(8)
   @MaxLength(64)
   @Matches(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, {
-    message: 'invalid e-mail.',
+    message: 'E-mail inválido.',
   })
   email: string;
 
   @IsString()
   @Matches(/(\(\d{2}\)\s)(\d{4,5}\-\d{4})/, {
-    message: 'invalid phone',
+    message: 'Telefone inválido.',
   })
   phone: string;
 
   @IsString()
   @MinLength(8)
   @MaxLength(64)
-  @Matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])$/, {
+  @Matches(/(?:(?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message:
-      'password must contain at least one upper case letter, one lower case letter, one number and one special character.',
+      'Sua senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.',
   })
   password: string;
 }

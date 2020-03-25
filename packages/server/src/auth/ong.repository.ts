@@ -1,4 +1,7 @@
-import { InternalServerErrorException } from '@nestjs/common';
+import {
+  ConflictException,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { EntityRepository, Repository } from 'typeorm';
 import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
@@ -19,7 +22,13 @@ export class ONGRepository extends Repository<ONG> {
     try {
       await ong.save();
     } catch (error) {
-      throw new InternalServerErrorException(error);
+      if (error.errno === 19) {
+        throw new ConflictException('ONG já está cadastrada.');
+      } else {
+        throw new InternalServerErrorException(
+          'Ocorreu um erro ao criar o seu cadastro, tente novamente mais tarde.',
+        );
+      }
     }
   }
 
